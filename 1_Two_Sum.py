@@ -24,7 +24,10 @@ Constraints:
 -109 <= target <= 109
 Only one valid answer exists.
 """
+nums = [2, 7, 11, 15]
+target = 9
+buffer = {}
 
-for idx, i in enumerate(nums[:-1]):
-    for jdx, j in enumerate(nums[idx+1:]):
-        if i + j == target: [idx, jdx+idx+1]
+for i in range(len(nums)):
+    if nums[i] in buffer: return [buffer[nums[i]], i]
+    buffer[target - nums[i]] = i
